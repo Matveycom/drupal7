@@ -1,0 +1,4 @@
+name = error 404
+description = page for error 404
+version = 7.x-dev
+core = 7.x

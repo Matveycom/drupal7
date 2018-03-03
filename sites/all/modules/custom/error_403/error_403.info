@@ -1,0 +1,4 @@
+name = error 403
+description = page for error 403
+version = 7.x-dev
+core = 7.x

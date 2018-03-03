@@ -1,0 +1,20 @@
+<?php
+
+/**
+ * Implements hook_menu()
+ */
+function error_403_menu() {
+    $items = array();
+    $items['error_403'] = array(
+        'title' => 'error 403',
+        'page callback' => 'error_403',
+        'access callback' => true,
+    );
+    return $items;
+}
+/**
+ * Function error_403
+ */
+function error_403() {
+    return t('Forbidden');
+}

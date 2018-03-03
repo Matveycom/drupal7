@@ -1,0 +1,49 @@
+<?php
+
+/**
+ * Implements hook_block_info().
+ */
+function custom_block_block_info() {
+    $block = array();
+
+    $block['custom_block'] = array(
+        'info' => t('Custom block'),
+    );
+    return $block;
+}
+/**
+ * Implements hook_block_view().
+ */
+
+function custom_block_block_view($delta = '') {
+
+    $block = array();
+
+    if ($delta == 'custom_block') {
+//      if (user_access('access content'){
+        $block['subject'] = t('custom block');
+        $block['access callback'] = 'user_access';
+        $block['access arguments'] = array('administer custom_block module');
+        if (user_access('administer custom_block module')) {
+            $block['content'] = t('custom content');
+
+        } else {
+            $block['content'] = t('access to view this content is denied.');
+        }
+    }
+
+    return $block;
+}
+
+/**
+ * Implements hook_permission
+ */
+function custom_block_permission(){
+    return array(
+        'administer custom_block module' => array(
+            'title' => t('Administer custom_block module'),
+            'description' => t('Perform administration tasks for my module.'),
+
+        ),
+    );
+}
